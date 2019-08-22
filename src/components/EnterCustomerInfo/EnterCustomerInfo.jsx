@@ -24,6 +24,23 @@ handleChangeFor = (propertyName, event) => {
     })
 }
 
+handleRadioPickup = (event) => {
+    this.setState({
+        newCustomer: ({
+            ...this.state.newCustomer,
+            type: "Pickup"
+        })
+    })
+}
+
+handleRadioDelivery = (event) => {
+    this.setState({
+        newCustomer: {
+            ...this.state.newCustomer,
+            type: "Delivery"
+        }
+    })
+}
 
 handleSubmit = (event) => {
     event.preventDefault();
@@ -57,11 +74,10 @@ render(){
             onChange = {(event) => this.handleChangeFor('city', event)}/>
             <input type= "number" placeholder = "Your Zip Code"
              onChange = {(event) => this.handleChangeFor('zip', event)} />
-                    <input type="radio" name="delivery" value="Pickup" checked={this.setState({ newCustomer: { type: false}})} 
-            className = "form-check-input" />
-                    <input type="radio" name="delivery" value="Delivery" checked={this.setState({ newCustomer: { type: true }})} 
-            className = "form-check-input" />
-                <button type="submit" >Next</button>
+
+             <input type="radio" name="delivery" value="type" onClick ={this.handleRadioPickup}  />Pickup
+            <input type="radio" name="delivery" value="type" onClick ={this.handleRadioDelivery} />Delivery
+             <button type="submit" >Next</button>
         </form>
         </div>
        
