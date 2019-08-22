@@ -3,6 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { SSL_OP_SINGLE_DH_USE } from 'constants';
+import SelectPizza from '../SelectPizza/SelectPizza';
 
 
 
@@ -15,16 +16,16 @@ class Customer extends Component {
 
     //
 
-   handlePost = (event) => {
-       axios.post('/api/order', /*CUSTOMER INFO TO POST HERE, PIZZA INFO TO POST HERE */)
-       .then ((response) => {
-           console.log('IN POST:', response);
+//    handlePost = (event) => {
+//        axios.post('/api/order', )
+//        .then ((response) => {
+//            console.log('IN POST:', response);
            
-       }).catch((error) => {
-           console.log('ERROR in POST:', error);
-       })
-       this.props.history.push();
-   }
+//        }).catch((error) => {
+//            console.log('ERROR in POST:', error);
+//        })
+//        this.props.history.push();
+//    }
 
  
 
@@ -32,18 +33,22 @@ class Customer extends Component {
 
        
         //map customer info to list customer info
-        let customerInfo = this.props.reduxStore.SOMETHINGHERE.map(info => {
-            <div>
-                <p>{info.customer_name}</p>
-                <p>{info.street_address}</p>
-                <p>{info.city}</p>
-                <p>{info.type}</p> 
-            </div>
-                
+        let customerInfo = this.props.customerInfo.map(info => {
+            return (
+                <div>
+                    <p>{info.customer_name}</p>
+                    <p>{info.street_address}</p>
+                    <p>{info.city} {info.zip}</p>
+                    <p>{info.type}</p>
+                </div>
+
+            )
         })
 
-        let pizzaInfo = this.props.reduxStore.cart.map(pizza => {
+        let pizzaInfo = this.props.pizzaInfo.map(pizza => {
+            return (
                 <tr><td>{pizza}</td></tr>
+            )   
         })
 
 
@@ -74,9 +79,9 @@ class Customer extends Component {
                     </table>
 
                     <p><h3>Total: $ <span>1000</span></h3></p>
-                    <Link to="/"><button onClick={handlePost}>CHECKOUT</button></Link>
+                    <button>CHECKOUT</button>
                     
-                    <Route exact path ="/" component={SelectPizza}/>
+                    <Route exact path ="/select" component={SelectPizza}/>
                 </div>
 
             
@@ -86,7 +91,8 @@ class Customer extends Component {
 
 const mapToProps = reduxStore => {
     return {
-        reduxStore
+        customerInfo: reduxStore.customerInfo,
+        pizzaInfo: reduxStore.cart
     }
 }
 
