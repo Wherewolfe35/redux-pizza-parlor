@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
+import {connect} from 'react-redux'
 
 class SelectPizza extends Component {
   componentDidMount() {
@@ -7,9 +8,8 @@ class SelectPizza extends Component {
   }
 
   getPizzas = () => {
-    axios
-      .get("/api/pizza")
-      .them(response => {
+    axios.get("/api/pizza")
+      .then(response => {
         console.log(response.data);
         this.props.dispatch({
           type: "SET_PIZZA",
@@ -34,4 +34,9 @@ class SelectPizza extends Component {
   }
 }
 
-export default SelectPizza;
+const mapStateToProps = reduxStore => ({
+  reduxStore
+});
+
+
+export default connect(mapStateToProps)(SelectPizza);
