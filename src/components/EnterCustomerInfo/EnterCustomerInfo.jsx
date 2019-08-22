@@ -52,8 +52,12 @@ handleSubmit = (event) => {
     .catch(error => {
         console.log(error);
     });
-    this.props.history.push();
+    this.props.history.push('/checkout');
 }
+
+handleBackButton = (event) => [
+    this.props.history.push('/select')
+]
 
 render(){ 
 
@@ -77,7 +81,10 @@ render(){
 
              <input type="radio" name="delivery" value="type" onClick ={this.handleRadioPickup}  />Pickup
             <input type="radio" name="delivery" value="type" onClick ={this.handleRadioDelivery} />Delivery
+            <br/>
+            <button onClick={this.handleBackButton}>Back</button>
              <button type="submit" >Next</button>
+
         </form>
         </div>
        

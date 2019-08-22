@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import SelectPizza from '../SelectPizza/SelectPizza';
 
 
 
@@ -13,20 +11,14 @@ class Customer extends Component {
 
     //map order to list pizza orders in table
 
-    //
+handleCheckout = () => {
+    console.log('button clicked');
+    this.props.history.push('/')
+}
 
-//    handlePost = (event) => {
-//        axios.post('/api/order', )
-//        .then ((response) => {
-//            console.log('IN POST:', response);
-           
-//        }).catch((error) => {
-//            console.log('ERROR in POST:', error);
-//        })
-//        this.props.history.push();
-//    }
-
- 
+handleBackButton = () => {
+    this.props.history.push('/select')
+}
 
     render() {
 
@@ -78,9 +70,9 @@ class Customer extends Component {
                     </table>
 
                     <p><h3>Total: $ <span>1000</span></h3></p>
-                    <button>CHECKOUT</button>
+                    <button onClick={this.handleBackButton}>Back</button>
+                    <button onClick={this.handleCheckout}>CHECKOUT</button>
                     
-                    <Route exact path ="/select" component={SelectPizza}/>
                 </div>
 
             
