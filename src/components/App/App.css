@@ -25,3 +25,9 @@
 .startedLink {
   font-size: 24px;
 }
+
+.pizzaBox {
+  height: 300px;
+  width: 300px;
+  display: inline-block;
+}
