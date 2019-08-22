@@ -21,7 +21,7 @@ class SelectPizza extends Component {
   handleDeletePizza = id => {
     this.props.dispatch({
       type: "REMOVE_PIZZA",
-      payload: { id }
+      payload:  id 
     });
   };
 
@@ -49,9 +49,9 @@ class SelectPizza extends Component {
       <>
         <header>
           <h1>Step 1: Select You Pizza</h1>
-          <p>Total: $.$$</p>
         </header>
         <div className='pizzaContainer'>
+          <p className='orderTotal'>Total: $.$$</p>
           {this.props.reduxStore.pizzaList.map(pizza => (
             <div className='pizzaBox' key={pizza.id}>
               <h2>{pizza.name}</h2>
