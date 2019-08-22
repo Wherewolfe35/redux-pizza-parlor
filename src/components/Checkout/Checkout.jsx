@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { connect } from 'react-redux';
 // import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import SelectPizza from '../SelectPizza/SelectPizza';
+// import SelectPizza from '../SelectPizza/SelectPizza';
 
 
 
@@ -40,7 +40,7 @@ handleBackButton = () => {
 
         let pizzaInfo = this.props.pizzaInfo.map(pizza => {
             return (
-                <tr><td>{pizza}</td></tr>
+                <tr><td>{pizza.pizzas}</td><td>{pizza.total}</td></tr>
             )   
         })
 
@@ -74,6 +74,7 @@ handleBackButton = () => {
                     <p><h3>Total: $ <span>1000</span></h3></p>
                     <button onClick={this.handleBackButton}>Back</button>
                     <button onClick={this.handleCheckout}>CHECKOUT</button>
+                    {/* {JSON.stringify(this.props.pizzaInfo)} */}
                     
                     {/* <Route exact path ="/select" component={SelectPizza}/> */}
                 </div>
