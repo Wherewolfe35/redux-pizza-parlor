@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-// import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import SelectPizza from '../SelectPizza/SelectPizza';
 
 
 
@@ -75,7 +73,6 @@ handleBackButton = () => {
                     <button onClick={this.handleBackButton}>Back</button>
                     <button onClick={this.handleCheckout}>CHECKOUT</button>
                     
-                    {/* <Route exact path ="/select" component={SelectPizza}/> */}
                 </div>
 
             

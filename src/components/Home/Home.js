@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import SelectPizza from "../SelectPizza/SelectPizza.jsx"
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   state = {  }
