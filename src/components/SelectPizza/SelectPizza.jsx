@@ -27,7 +27,11 @@ class SelectPizza extends Component {
         <header>
           <p>Step 1: Select You Pizza</p>
         </header>
-        <div className='pizzaContainer' />
+        <div className='pizzaContainer'>
+            {this.props.reduxStore.pizzaList.map(pizza => (
+                <div><h2>{pizza.name}</h2>{pizza.description}</div>
+            ))}
+        </div>
         <button>Next</button>
       </>
     );
