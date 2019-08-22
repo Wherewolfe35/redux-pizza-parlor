@@ -3,7 +3,18 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 
 class SelectPizza extends Component {
-  componentDidMount() {
+    state = {
+        pizzas : []
+    }
+
+handleClick = (id, name, price) => {
+    this.props.dispatch({
+        type: "ADD_PIZZA",
+        payload: {id, name, price}
+    })
+}
+
+    componentDidMount() {
     this.getPizzas();
   }
 
@@ -25,11 +36,12 @@ class SelectPizza extends Component {
     return (
       <>
         <header>
-          <p>Step 1: Select You Pizza</p>
+          <h1>Step 1: Select You Pizza</h1>
+          <p>Total: $.$$</p>
         </header>
         <div className='pizzaContainer'>
             {this.props.reduxStore.pizzaList.map(pizza => (
-                <div><h2>{pizza.name}</h2>{pizza.description}</div>
+                <div className="pizzaBox" key={pizza.id}><h2>{pizza.name}</h2><h4>{pizza.description}</h4><p>${pizza.price}</p><button onClick={() => this.handleClick (pizza.id, pizza.name, pizza.price)}>Add to Order</button></div>
             ))}
         </div>
         <button>Next</button>
