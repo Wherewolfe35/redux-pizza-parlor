@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import { connect } from 'react-redux';
-// import { HashRouter as Router, Route, Link } from 'react-router-dom';
-// import SelectPizza from '../SelectPizza/SelectPizza';
+
 
 
 
@@ -76,7 +75,6 @@ handleBackButton = () => {
                     <button onClick={this.handleCheckout}>CHECKOUT</button>
                     {/* {JSON.stringify(this.props.pizzaInfo)} */}
                     
-                    {/* <Route exact path ="/select" component={SelectPizza}/> */}
                 </div>
 
             
