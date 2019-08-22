@@ -5,14 +5,9 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Home from "../Home/Home";
 import SelectPizza from "../SelectPizza/SelectPizza";
 import Checkout from "../Checkout/Checkout";
-// import EnterCustomerInfo from "../EnterCustomerInfo/EnterCustomerInfo";
+import EnterCustomerInfo from "../EnterCustomerInfo/EnterCustomerInfo";
 
 //Components
-
-
-
-
-
 
 
 class App extends Component {
@@ -22,7 +17,7 @@ class App extends Component {
       <Route exact path='/' component={Home}/>
       <Route path='/select' component={SelectPizza} />
       <Route path='/checkout' component={Checkout}/>
-      {/* <Route path='/order' component={EnterCustomerInfo} /> */}
+      <Route path='/order' component={EnterCustomerInfo} />
       </Router>
     );
   }
