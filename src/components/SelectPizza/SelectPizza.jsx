@@ -18,10 +18,10 @@ class SelectPizza extends Component {
     });
   };
 
-  handleDeletePizza = id => {
+  handleDeletePizza = (id, price) => {
     this.props.dispatch({
       type: "REMOVE_PIZZA",
-      payload:  id 
+      payload: { id, price }
     });
   };
 
@@ -63,7 +63,7 @@ class SelectPizza extends Component {
                 }>
                 Add to Order
               </button>
-              <button onClick={() => this.handleDeletePizza(pizza.id)}>
+              <button onClick={() => this.handleDeletePizza(pizza.id, pizza.price)}>
                 Delete
               </button>
             </div>

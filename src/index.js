@@ -24,7 +24,10 @@ const cart = (state={totalPrice: 0, cartList:[]}, action) => {
       let totalPrice=state.totalPrice;
       return {totalPrice:totalPrice + +(action.payload.price), cartList:[...state.cartList, action.payload] };
     case 'REMOVE_PIZZA':
-      return state.filter(stat => stat.id != action.payload);
+        let newList = state.cartList.filter(
+          stat => stat.id != action.payload.id
+        );
+      return {totalPrice: state.totalPrice - action.payload.price, cartList:newList};
     default:
       return state;
   }
