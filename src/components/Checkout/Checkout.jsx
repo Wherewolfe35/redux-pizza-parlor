@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { connect } from 'react-redux';
+
 
 
 
@@ -17,7 +18,7 @@ handleCheckout = () => {
 }
 
 handleBackButton = () => {
-    this.props.history.push('/select')
+    this.props.history.push('/order')
 }
 
     render() {
@@ -38,7 +39,7 @@ handleBackButton = () => {
 
         let pizzaInfo = this.props.pizzaInfo.map(pizza => {
             return (
-                <tr><td>{pizza}</td></tr>
+                <tr><td>{pizza.pizzas}</td><td>{pizza.total}</td></tr>
             )   
         })
 
@@ -72,6 +73,7 @@ handleBackButton = () => {
                     <p><h3>Total: $ <span>1000</span></h3></p>
                     <button onClick={this.handleBackButton}>Back</button>
                     <button onClick={this.handleCheckout}>CHECKOUT</button>
+                    {/* {JSON.stringify(this.props.pizzaInfo)} */}
                     
                 </div>
 
