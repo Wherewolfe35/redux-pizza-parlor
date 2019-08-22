@@ -22,9 +22,9 @@ const pizzaList = (state=[], action) => {
 const cart = (state=[], action) => {
   switch (action.type) {
     case 'ADD_PIZZA':
-      return action.payload;
+      return [...state, action.payload];
     case 'REMOVE_PIZZA':
-      return state.filter(stat => stat.id !== action.payload);
+      return state.filter(stat => stat.id != action.payload);
     default:
       return state;
   }

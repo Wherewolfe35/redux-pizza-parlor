@@ -27,7 +27,16 @@
 }
 
 .pizzaBox {
+  contain: strict;
   height: 300px;
   width: 300px;
   display: inline-block;
+  align-content: center;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.orderTotal {
+  text-align: right;
+  margin: 10px;
 }
