@@ -29,10 +29,21 @@ const cart = (state=[], action) => {
   }
 }
 
+//reducer to keep track of customer information
+const customerInfo = (state, action) => {
+  switch (action.type) {
+    case 'ADD_INFO':
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 const store = createStore(
     combineReducers({
       cart,
-      pizzaList
+      pizzaList,
+      customerInfo
     }),
     applyMiddleware(logger)
 )
