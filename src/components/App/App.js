@@ -7,6 +7,9 @@ import SelectPizza from "../SelectPizza/SelectPizza";
 import Checkout from "../Checkout/Checkout";
 import EnterCustomerInfo from "../EnterCustomerInfo/EnterCustomerInfo";
 
+//Components
+import SelectPizza from "../SelectPizza/SelectPizza"
+
 class App extends Component {
   render() {
     return (
