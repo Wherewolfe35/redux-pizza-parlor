@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import { SSL_OP_SINGLE_DH_USE } from 'constants';
 import SelectPizza from '../SelectPizza/SelectPizza';
 
 
