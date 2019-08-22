@@ -23,6 +23,7 @@ class Customer extends Component {
        }).catch((error) => {
            console.log('ERROR in POST:', error);
        })
+       this.props.history.push();
    }
 
  
