@@ -49,7 +49,6 @@ class Customer extends Component {
 
 
         return (
-            <Router>
                 <div>
                     <header className="App-header">
                         <h1 className="App-title">Prime Pizza</h1>
@@ -79,7 +78,6 @@ class Customer extends Component {
                     <Route exact path ="/" component={SelectPizza}/>
                 </div>
 
-            </Router>
             
         )
     }
