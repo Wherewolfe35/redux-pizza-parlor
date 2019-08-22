@@ -19,7 +19,7 @@ handleCheckout = () => {
 }
 
 handleBackButton = () => {
-    this.props.history.push('/select')
+    this.props.history.push('/order')
 }
 
     render() {
