@@ -85,7 +85,6 @@ render(){
             <br/>
             <button onClick={this.handleBackButton}>Back</button>
              <button type="submit" >Next</button>
-
         </form>
         </div>
        
