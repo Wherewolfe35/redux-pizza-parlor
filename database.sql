@@ -34,29 +34,29 @@ CREATE TABLE "line_item" (
 );
 
 UPDATE "pizza"
-SET "image_path" = 'pizzaheart.jpg'
+SET "image_path" = 'images/pizzaheart.jpg'
 WHERE "name" = 'Another Little Pizza My Heart';
 
 UPDATE "pizza"
-SET "image_path" = 'baddatepizza.jpg'
+SET "image_path" = 'images/baddatepizza.jpg'
 WHERE "name" = 'Bad Date';
 
 UPDATE "pizza"
-SET "image_path" = 'pineapplepizza.jpg'
+SET "image_path" = 'images/pineapplepizza.jpg'
 WHERE "name" = 'Chinese Firedragon';
 
 UPDATE "pizza"
-SET "image_path" = 'doritospizza.jpg'
+SET "image_path" = 'images/doritospizza.jpg'
 WHERE "name" = 'Over the Rainbow';
 
 UPDATE "pizza"
-SET "image_path" = 'pepperonipizza.jpg'
+SET "image_path" = 'images/pepperonipizza.jpg'
 WHERE "name" = 'Pepperoni';
 
 UPDATE "pizza"
-SET "image_path" = 'tomato_soup.jpg'
+SET "image_path" = 'images/tomato_soup.jpg'
 WHERE "name" = 'Tomato Soup';
 
 UPDATE "pizza"
-SET "image_path" = 'onopizza.jpg'
+SET "image_path" = 'images/onopizza.jpg'
 WHERE "name" = 'Onomatopizza';
