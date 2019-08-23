@@ -51,7 +51,7 @@ class SelectPizza extends Component {
           <h1>Step 1: Select You Pizza</h1>
         </header>
         <div className='pizzaContainer'>
-          <p className='orderTotal'>Total: $.$$</p>
+          <p className='orderTotal'>Total: ${this.props.reduxStore.cart.totalPrice}</p>
           {this.props.reduxStore.pizzaList.map(pizza => (
             <div className='pizzaBox' key={pizza.id}>
               <h2>{pizza.name}</h2>

@@ -8,7 +8,6 @@ import SelectPizza from "../SelectPizza/SelectPizza";
 import Checkout from "../Checkout/Checkout";
 import EnterCustomerInfo from "../EnterCustomerInfo/EnterCustomerInfo";
 import Admin from '../Admin/Admin'
-//Components
 
 
 class App extends Component {
