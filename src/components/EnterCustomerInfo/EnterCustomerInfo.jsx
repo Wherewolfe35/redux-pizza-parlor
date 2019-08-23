@@ -46,18 +46,17 @@ handleRadioDelivery = (event) => {
 handleSubmit = (event) => {
     event.preventDefault();
     console.log('you clicked the submit', this.state.newCustomer);
-    axios.post('/api/order', this.state.newCustomer)
-    .then(response => {
-    console.log(response);
+
+    this.props.dispatch({
+        type: 'ADD_INFO',
+        payload:  this.state.newCustomer
     })
-    .catch(error => {
-        console.log(error);
-    });
-    this.props.history.push('/checkout');
+     this.props.history.push("/checkout");
 }
 
 handleBackButton = (event) => [
     this.props.history.push('/select')
+
 ]
 
 render(){ 
