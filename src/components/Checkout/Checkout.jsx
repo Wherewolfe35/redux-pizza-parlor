@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 
 
-class Customer extends Component {
+class Checkout extends Component {
 
     //render info from order
     
@@ -90,4 +90,4 @@ const mapToProps = reduxStore => {
 }
 
 
-export default connect(mapToProps) (Customer);
+export default connect(mapToProps) (Checkout);
