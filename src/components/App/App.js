@@ -7,6 +7,8 @@ import Home from "../Home/Home";
 import SelectPizza from "../SelectPizza/SelectPizza";
 import Checkout from "../Checkout/Checkout";
 import EnterCustomerInfo from "../EnterCustomerInfo/EnterCustomerInfo";
+import Admin from '../Admin/Admin'
+
 
 class App extends Component {
   render() {
@@ -16,6 +18,7 @@ class App extends Component {
       <Route path='/select' component={SelectPizza} />
       <Route path='/checkout' component={Checkout}/>
       <Route path='/order' component={EnterCustomerInfo} />
+      <Route path ='/admin' component ={Admin}/>
       </Router>
     );
   }
