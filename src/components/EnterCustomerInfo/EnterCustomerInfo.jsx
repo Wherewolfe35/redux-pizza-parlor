@@ -45,15 +45,18 @@ handleRadioDelivery = (event) => {
 handleSubmit = (event) => {
     event.preventDefault();
     console.log('you clicked the submit', this.state.newCustomer);
-    axios.post('/api/order', this.state.newCustomer)
-    .then(response => {
-    console.log(response);
+
+    this.props.dispatch({
+        type: 'ADD_INFO',
+        payload:  this.state.newCustomer
     })
-    .catch(error => {
-        console.log(error);
-    });
-    this.props.history.push();
+     this.props.history.push("/checkout");
 }
+
+handleBackButton = (event) => [
+    this.props.history.push('/select')
+
+]
 
 render(){ 
 
@@ -77,7 +80,10 @@ render(){
 
              <input type="radio" name="delivery" value="type" onClick ={this.handleRadioPickup}  />Pickup
             <input type="radio" name="delivery" value="type" onClick ={this.handleRadioDelivery} />Delivery
+            <br/>
+            <button onClick={this.handleBackButton}>Back</button>
              <button type="submit" >Next</button>
+
         </form>
         </div>
        

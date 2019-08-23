@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
-import SelectPizza from "./components/SelectPizza/SelectPizza"
 
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
@@ -19,12 +18,16 @@ const pizzaList = (state=[], action) => {
 }
 
 //reducer to keep track of pizzas being purchased
-const cart = (state=[], action) => {
+const cart = (state={totalPrice: 0, cartList:[]}, action) => {
   switch (action.type) {
     case 'ADD_PIZZA':
-      return action.payload;
+      let totalPrice=state.totalPrice;
+      return {totalPrice:totalPrice + +(action.payload.price), cartList:[...state.cartList, action.payload] };
     case 'REMOVE_PIZZA':
-      return state.filter(stat => stat.id !== action.payload);
+        let newList = state.cartList.filter(
+          stat => stat.id != action.payload.id
+        );
+      return {totalPrice: state.totalPrice - action.payload.price, cartList:newList};
     default:
       return state;
   }

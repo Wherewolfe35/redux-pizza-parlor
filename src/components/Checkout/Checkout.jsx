@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import { SSL_OP_SINGLE_DH_USE } from 'constants';
-import SelectPizza from '../SelectPizza/SelectPizza';
+
 
 
 
@@ -11,23 +9,25 @@ class Customer extends Component {
 
     //render info from order
     
-
+//    axios.post('/api/order', this.state.newCustomer)
+//     .then(response => {
+//     console.log(response);
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+   
+// }
     //map order to list pizza orders in table
 
-    //
+handleCheckout = () => {
+    console.log('button clicked');
+    this.props.history.push('/')
+}
 
-//    handlePost = (event) => {
-//        axios.post('/api/order', )
-//        .then ((response) => {
-//            console.log('IN POST:', response);
-           
-//        }).catch((error) => {
-//            console.log('ERROR in POST:', error);
-//        })
-//        this.props.history.push();
-//    }
-
- 
+handleBackButton = () => {
+    this.props.history.push('/order')
+}
 
     render() {
 
@@ -47,7 +47,7 @@ class Customer extends Component {
 
         let pizzaInfo = this.props.pizzaInfo.map(pizza => {
             return (
-                <tr><td>{pizza}</td></tr>
+                <tr><td>{pizza.pizzas}</td><td>{pizza.total}</td></tr>
             )   
         })
 
@@ -79,9 +79,10 @@ class Customer extends Component {
                     </table>
 
                     <p><h3>Total: $ <span>1000</span></h3></p>
-                    <button>CHECKOUT</button>
+                    <button onClick={this.handleBackButton}>Back</button>
+                    <button onClick={this.handleCheckout}>CHECKOUT</button>
+                    {/* {JSON.stringify(this.props.pizzaInfo)} */}
                     
-                    <Route exact path ="/select" component={SelectPizza}/>
                 </div>
 
             
