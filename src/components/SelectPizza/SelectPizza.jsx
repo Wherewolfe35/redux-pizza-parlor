@@ -54,6 +54,7 @@ class SelectPizza extends Component {
           <p className='orderTotal'>Total: ${this.props.reduxStore.cart.totalPrice}</p>
           {this.props.reduxStore.pizzaList.map(pizza => (
             <div className='pizzaBox' key={pizza.id}>
+              <img src={pizza.image_path} alt="photo of pizza"/>
               <h2>{pizza.name}</h2>
               <h4>{pizza.description}</h4>
               <p>${pizza.price}</p>
