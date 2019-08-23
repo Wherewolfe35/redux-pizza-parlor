@@ -37,7 +37,7 @@ const cart = (state={totalPrice: 0, cartList:[]}, action) => {
 const customerInfo = (state = [], action) => {
   switch (action.type) {
     case 'ADD_INFO':
-      return action.payload;
+      return [action.payload];
     default:
       return state;
   }
