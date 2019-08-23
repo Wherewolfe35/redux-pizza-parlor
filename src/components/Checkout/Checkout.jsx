@@ -8,30 +8,10 @@ import axios from 'axios';
 
 class Checkout extends Component {
 
-    // state = {
-    //     newCustomer: {
-    //         customer_name: '',
-    //         street_address: '',
-    //         city: '',
-    //         zip: '',
-    //         type: true,
-    //         total: this.props.reduxStore.cart.totalPrice
-    //     }
-    // }
+    //render info from order
+    
 
-
-    // handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     console.log('you clicked the submit', this.state.newCustomer);
-    //     axios.post('/api/order', this.state.newCustomer)
-    //         .then(response => {
-    //             console.log(response);
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    // }
-
+    //map order to list pizza orders in table
 
 handleCheckout = () => {
     console.log('button clicked');
@@ -94,8 +74,8 @@ handleBackButton = () => {
                 <h3>Total: $<span>{this.props.pizzaInfo.totalPrice}</span></h3>
                     <button onClick={this.handleBackButton}>Back</button>
                     <button onClick={this.handleCheckout}>CHECKOUT</button>
-                    {JSON.stringify(this.props.customerInfo)}
-                {JSON.stringify(this.props.pizzaInfo)}
+                    {/* {JSON.stringify(this.props.customerInfo)}
+                {JSON.stringify(this.props.pizzaInfo)} */}
 
                     
                 </div>
