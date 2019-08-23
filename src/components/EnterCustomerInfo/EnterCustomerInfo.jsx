@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import axios from 'axios';
-
+import {Button} from '@material-ui/core'
+import {Container} from '@material-ui/core'
+import {CssBaseline} from '@material-ui/core'
+import RadioGroup from "@material-ui/core/RadioGroup";
+import Radio from "@material-ui/core/Radio";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 class EnterCustomerInfo extends Component {
 
@@ -64,7 +68,8 @@ render(){
     return (
         
         <div>
-            <header>
+            <CssBaseline />
+            <header color = "primary">
                 <h1>Prime Pizza</h1>
                 <h2>Total: {this.props.reduxStore.cart.totalPrice}</h2>
             </header>
@@ -79,11 +84,17 @@ render(){
             <input type= "number" placeholder = "Your Zip Code"
              onChange = {(event) => this.handleChangeFor('zip', event)} />
 
-             <input type="radio" name="delivery" value="type" onClick ={this.handleRadioPickup}  />Pickup
-            <input type="radio" name="delivery" value="type" onClick ={this.handleRadioDelivery} />Delivery
-            <br/>
-            <button onClick={this.handleBackButton}>Back</button>
-             <button type="submit" >Next</button>
+            <RadioGroup 
+                aria-label = "delivery"
+                name = "delivery">
+                 <FormControlLabel value="female" control={<Radio />} label="Delivery" onClick = {this.handleRadioDelivery} />
+                <FormControlLabel value="male" control={<Radio />} label="Pickup"  onClick = {this.handleRadioPickup}/>
+             
+            </RadioGroup>
+           
+            <Button variant = "contained" color = "primary" onClick={this.handleBackButton}>Back</Button>
+             <Button variant = "contained" color = "secondary" type="submit" >Next</Button>
+
         </form>
         </div>
        
