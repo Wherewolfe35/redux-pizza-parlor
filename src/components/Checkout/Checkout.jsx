@@ -37,9 +37,9 @@ handleBackButton = () => {
             )
         })
 
-        let pizzaInfo = this.props.pizzaInfo.map(pizza => {
+        let pizzaInfo = this.props.pizzaInfo.cartList.map(pizza => {
             return (
-                <tr><td>{pizza.pizzas}</td><td>{pizza.total}</td></tr>
+                <tr><td>{pizza.name}</td><td>{pizza.price}</td></tr>
             )   
         })
 
@@ -70,7 +70,7 @@ handleBackButton = () => {
                         </tbody>
                     </table>
 
-                    <p><h3>Total: $ <span>1000</span></h3></p>
+                <p><h3>Total: $<span>{this.props.pizzaInfo.totalPrice}</span></h3></p>
                     <button onClick={this.handleBackButton}>Back</button>
                     <button onClick={this.handleCheckout}>CHECKOUT</button>
                     {/* {JSON.stringify(this.props.pizzaInfo)} */}
