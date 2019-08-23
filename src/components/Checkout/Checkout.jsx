@@ -9,19 +9,20 @@ class Checkout extends Component {
 
     //render info from order
     
-//    axios.post('/api/order', this.state.newCustomer)
-//     .then(response => {
-//     console.log(response);
-//     })
-//     .catch(error => {
-//         console.log(error);
-//     });
    
-// }
     //map order to list pizza orders in table
 
 handleCheckout = () => {
+    this.props.customerInfo.pizzas = this.props.pizzas;
+    let postData = this.props.customerInfo
     console.log('button clicked');
+    axios.post('/api/order', postData)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        });
     this.props.history.push('/')
 }
 
@@ -93,7 +94,8 @@ handleBackButton = () => {
 const mapToProps = reduxStore => {
     return {
         customerInfo: reduxStore.customerInfo,
-        pizzaInfo: reduxStore.cart
+        pizzaInfo: reduxStore.cart,
+        pizzas: reduxStore.pizzas
     }
 }
 
