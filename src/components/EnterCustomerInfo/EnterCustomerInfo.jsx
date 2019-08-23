@@ -12,6 +12,7 @@ state = {
         city: '',
         zip: '',
         type: true,
+        total: this.props.reduxStore.cart.totalPrice
     }
 }
 
@@ -66,7 +67,7 @@ render(){
         <div>
             <header>
                 <h1>Prime Pizza</h1>
-                {/* <h2>Total: {this.props.reduxStore.cart.totalPrice}</h2> */}
+                <h2>Total: {this.props.reduxStore.cart.totalPrice}</h2>
             </header>
         <h1>Hello From Customer Info Form</h1>
         <form onSubmit = {this.handleSubmit}>
