@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, } from 'react-router-dom';
+
+//Components
 import Home from "../Home/Home";
 import SelectPizza from "../SelectPizza/SelectPizza";
 import Checkout from "../Checkout/Checkout";
 import EnterCustomerInfo from "../EnterCustomerInfo/EnterCustomerInfo";
 import Admin from '../Admin/Admin'
-//Components
 
 
 class App extends Component {
