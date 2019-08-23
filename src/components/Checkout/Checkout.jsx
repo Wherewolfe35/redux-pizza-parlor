@@ -9,7 +9,15 @@ class Customer extends Component {
 
     //render info from order
     
-
+//    axios.post('/api/order', this.state.newCustomer)
+//     .then(response => {
+//     console.log(response);
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+   
+// }
     //map order to list pizza orders in table
 
 handleCheckout = () => {
