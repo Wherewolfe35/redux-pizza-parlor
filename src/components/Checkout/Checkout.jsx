@@ -10,11 +10,19 @@ class Checkout extends Component {
 
     //render info from order
     
-
     //map order to list pizza orders in table
 
 handleCheckout = () => {
-    console.log('button clicked');
+    this.props.customerInfo[0].pizzas = this.props.pizzas;
+    let postData = this.props.customerInfo[0];
+    console.log('button clicked', postData);
+    axios.post('/api/order', postData)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        });
     this.props.history.push('/')
 }
 
@@ -88,7 +96,8 @@ handleBackButton = () => {
 const mapToProps = reduxStore => {
     return {
         customerInfo: reduxStore.customerInfo,
-        pizzaInfo: reduxStore.cart
+        pizzaInfo: reduxStore.cart,
+        pizzas: reduxStore.pizzas
     }
 }
 
