@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 
 
 
-class Customer extends Component {
+class Checkout extends Component {
 
     //render info from order
     
-//    axios.post('/api/order', this.state.newCustomer)
-//     .then(response => {
-//     console.log(response);
-//     })
-//     .catch(error => {
-//         console.log(error);
-//     });
-   
-// }
     //map order to list pizza orders in table
 
 handleCheckout = () => {
-    console.log('button clicked');
+    this.props.customerInfo[0].pizzas = this.props.pizzas;
+    let postData = this.props.customerInfo[0];
+    console.log('button clicked', postData);
+    axios.post('/api/order', postData)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        });
     this.props.history.push('/')
 }
 
@@ -78,10 +79,12 @@ handleBackButton = () => {
                         </tbody>
                     </table>
 
-                <p><h3>Total: $<span>{this.props.pizzaInfo.totalPrice}</span></h3></p>
+                <h3>Total: $<span>{this.props.pizzaInfo.totalPrice}</span></h3>
                     <button onClick={this.handleBackButton}>Back</button>
                     <button onClick={this.handleCheckout}>CHECKOUT</button>
-                    {/* {JSON.stringify(this.props.pizzaInfo)} */}
+                    {/* {JSON.stringify(this.props.customerInfo)}
+                {JSON.stringify(this.props.pizzaInfo)} */}
+
                     
                 </div>
 
@@ -93,9 +96,10 @@ handleBackButton = () => {
 const mapToProps = reduxStore => {
     return {
         customerInfo: reduxStore.customerInfo,
-        pizzaInfo: reduxStore.cart
+        pizzaInfo: reduxStore.cart,
+        pizzas: reduxStore.pizzas
     }
 }
 
 
-export default connect(mapToProps) (Customer);
+export default connect(mapToProps) (Checkout);

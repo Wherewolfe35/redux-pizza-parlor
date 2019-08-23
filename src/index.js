@@ -37,7 +37,21 @@ const cart = (state={totalPrice: 0, cartList:[]}, action) => {
 const customerInfo = (state = [], action) => {
   switch (action.type) {
     case 'ADD_INFO':
-      return action.payload;
+      return [action.payload];
+    default:
+      return state;
+  }
+}
+
+const pizzas = (state=[], action) => {
+  switch (action.type) {
+    case 'ADD_PIZZA':
+      return [...state, {id: action.payload.id, quantity: 1}]
+    case 'REMOVE_PIZZA':
+      let newList = state.filter(
+        stat => stat.id != action.payload.id
+      );
+      return newList;
     default:
       return state;
   }
@@ -47,7 +61,8 @@ const store = createStore(
     combineReducers({
       cart,
       pizzaList,
-      customerInfo
+      customerInfo,
+      pizzas
     }),
     applyMiddleware(logger)
 )
