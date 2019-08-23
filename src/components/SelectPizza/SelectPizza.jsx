@@ -1,29 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import PizzaItem from "../Pizza Item/PizzaItem"
 
 class SelectPizza extends Component {
   state = {
-    pizzas: []
+    pizzas: [],
+    addButtonShowing: true
   };
 
   componentDidMount() {
     this.getPizzas();
   }
 
-  handleAddPizza = (id, name, price) => {
-    this.props.dispatch({
-      type: "ADD_PIZZA",
-      payload: { id, name, price }
-    });
-  };
-
-  handleDeletePizza = (id, price) => {
-    this.props.dispatch({
-      type: "REMOVE_PIZZA",
-      payload: { id, price }
-    });
-  };
 
   changePage = () => {
     this.props.history.push("/order");
@@ -44,6 +33,7 @@ class SelectPizza extends Component {
       });
   };
 
+
   render() {
     return (
       <>
@@ -58,15 +48,29 @@ class SelectPizza extends Component {
               <h2>{pizza.name}</h2>
               <h4>{pizza.description}</h4>
               <p>${pizza.price}</p>
-              <button
-                onClick={() =>
-                  this.handleAddPizza(pizza.id, pizza.name, pizza.price)
-                }>
-                Add to Order
-              </button>
-              <button onClick={() => this.handleDeletePizza(pizza.id, pizza.price)}>
-                Delete
-              </button>
+              <PizzaItem pizza={pizza} handleAddPizza={this.handleAddPizza} handleDeletePizza={this.handleDeletePizza}/>
+              
+              
+              {/* {for (let item of this.props.reduxStore.cart.cartList) {
+                  if (item.id === pizza.id) {
+                      return true
+                  } 
+                  
+                  
+                  
+                  
+                  .includes(pizza.id) ? (
+                <button
+                  onClick={() =>
+                    this.handleAddPizza(pizza.id, pizza.name, pizza.price)
+                  }>
+                  Add to Order
+                </button>
+              ) : (
+                <button
+                  onClick={() => this.handleDeletePizza(pizza.id, pizza.price)}>
+                  Delete
+                </button> */}
             </div>
           ))}
         </div>
